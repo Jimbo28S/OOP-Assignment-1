@@ -9,7 +9,7 @@ public class Sorter {
 	{
 		for (int i = 0; i < array.length - 1; i++) 
 		{
-			if (array[i].getHeight() > array[i + 1].getHeight()) 
+			if (array[i].getHeight() < array[i + 1].getHeight()) 
 			{
 				Shape holding = array[i];
 				array[i] = array[i + 1];
@@ -28,7 +28,7 @@ public class Sorter {
 			Shape currentShape = array[i];
 			int j = i - 1;
 			
-			while (j >= 0 && array[j].getHeight() > currentShape.getHeight()) 
+			while (j >= 0 && array[j].getHeight() < currentShape.getHeight()) 
 			{
 				array[j + 1] = array[j];
 				j -= 1;
@@ -43,14 +43,28 @@ public class Sorter {
 	
 	public static Shape[] selectionSort(Shape[] array) 
 	{
-		
+		for (int i = 0; i < array.length; i++) 
+		{
+			Shape currentShape = array[i];
+			int smallestIndex = i;
+			
+			for (int j = i + 1; j < array.length; j++) 
+			{
+				if (array[j].getHeight() > array[smallestIndex].getHeight()) 
+				{
+					smallestIndex = j;
+				}
+			}
+			array[i] = array[smallestIndex];
+			array[smallestIndex] = currentShape;
+		}
 		
 		return array;
 	}
 	
 	public static Shape[] mergeSort(Shape[] array) 
 	{
-
+		
 		
 		return array;
 	}

@@ -16,7 +16,7 @@ public class AppDriver
 		}
 		
 		System.out.println("Sorting");
-		Sorter.insertionSort(shapeList);
+		Sorter.bubbleSort(shapeList);
 		
 		for (Shape shape : shapeList) 
 		{
